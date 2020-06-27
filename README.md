@@ -20,6 +20,7 @@ We show the experiments in this section.
 We first compare the proposed network [2] (valid acc. 71.1%) with the baseline resnet network [1] (valid acc. 70.7%) by observing the calibration effect. 
 After that, we compare the aleotoric uncertainty and the epistemic uncertainty in the out-of-distribution (Cifar100 vs SVHN) setting.
 Finally, we show the ROC curve with aleotoric and epistemic, respectively, to observe which uncertainty measure correlates with the correctness.
+(The computation time in the test phase is not numerically compared since it does not increase significantly. This is because only the sampling from the logit space is added, which is a fraction of the network's forward propagation.)
 
 ### Calibration
 
