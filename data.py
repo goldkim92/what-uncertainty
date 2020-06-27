@@ -86,6 +86,22 @@ def get_svhn_loader(bs=256):
     return train_loader, test_loader
 
 
+def get_cifar100_test_loader(bs=256, r=0):
+
+    test_transform = tv.transforms.Compose([
+        tv.transforms.RandomRotation((r,r)),
+        tv.transforms.ToTensor(),
+        tv.transforms.Normalize((0.507, 0.487, 0.441), (0.267, 0.256, 0.276)),
+    ])
+
+    test_dataset = tv.datasets.CIFAR100(
+        root='../data', train=False, download=False, transform=test_transform)
+    test_loader = torch.utils.data.DataLoader(
+        test_dataset, batch_size=bs, shuffle=False, num_workers=2)
+    
+    return test_loader
+
+
 # def get_imagenet_loader(bs=32):
 #     train_dataset = tv.datasets.ImageFolder(
 #         '../data/imagenet/train',
