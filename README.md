@@ -19,6 +19,7 @@ To train the resnet baseline model, change the `--arch` argument to `resnet`.
 We show the experiments in this section. 
 We first compare the proposed network [2] (valid acc. 71.1%) with the baseline resnet network [1] (valid acc. 70.7%) by observing the calibration effect. 
 After that, we compare the aleotoric uncertainty and the epistemic uncertainty in the out-of-distribution (Cifar100 vs SVHN) setting.
+Finally, we show the ROC curve with aleotoric and epistemic, respectively, to observe which uncertainty measure correlates with the correctness.
 
 ### Calibration
 
@@ -40,6 +41,13 @@ To sum up, the proposed method has a little effect on calibration in the in-dist
 </p>
 
 We perform another out-of-distribution experiment by comparing the aleotoric uncertainty and the epistemic uncertainty with the Cifar100 dataset and the SVHN dataset. The first figure at the above shows that there is a small difference in the density estimation between Cifar100 and the SVHN. On the other hand, the second figure shows that two distributions are different. While Cifar100 data are leaned to have small epistemic uncertainty, the SVHN data have various epistemic entropy. This experiments show that the proposed method works well for measuring the aleotoric uncertainty and the epistemic uncertainty.
+
+### ROC curve
+<p align="center">
+  <img src="./png/roc_curve.png">
+</p>
+
+We observe the correlation of the correctness with each uncertainty measure by drawing the ROC curve, and the results are shown above. We see that aleotoric uncertainty does not have correlation with correctness, while the epistemic uncertainty has 0.86 for the auroc.
 
 ## References
 [1] He, Kaiming, et al. "Deep residual learning for image recognition." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016. <br>
